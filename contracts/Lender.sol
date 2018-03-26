@@ -134,25 +134,25 @@ contract Lender is NonFungibleEscrow, TBCOToken, Ownable {
 	function addLender(address erc721, uint256 assetId) public payable {
 		// Check not already lender
 		require(lenders[msg.sender].registry == address(0));
-        
-        // Check item in escrow
-        require(isOnEscrow(erc721, assetId));
+	    
+	    // Check item in escrow
+	    require(isOnEscrow(erc721, assetId));
 
-        // Check we can cover this lend amount
-        Escrow memory e = _getEscrow(erc721, assetId);
-        
-        uint256 itemAmount = e.amountInWei;
-        require(itemAmount <= _maxLendAmount());
-                
-        // check can cover 1.5 % fee
-        uint lendFee = e.amountInWei.mul(15).div(1000);
-        
-        require(msg.value >= lendFee);
+	    // Check we can cover this lend amount
+	    Escrow memory e = _getEscrow(erc721, assetId);
+	    
+	    uint256 itemAmount = e.amountInWei;
+	    require(itemAmount <= _maxLendAmount());
+	            
+	    // check can cover 1.5 % fee
+	    uint lendFee = e.amountInWei.mul(15).div(1000);
+	    
+	    require(msg.value >= lendFee);
 
-        // Return money 
-        if (msg.value > lendFee) {
+	    // Return money 
+	    if (msg.value > lendFee) {
 	        msg.sender.transfer(msg.value.sub(lendFee));
-        }
+	    }
 
 		Lend memory lender = Lend({
 			id: lendersCount,
@@ -173,10 +173,10 @@ contract Lender is NonFungibleEscrow, TBCOToken, Ownable {
 		lendersCount++;
 
 		// transfer old owner full price of the item.
-        e.escrower.transfer(itemAmount);
+	    e.escrower.transfer(itemAmount);
 
-        // Remove Item from escrow list 
-        _removeEscrow(erc721, assetId);
+	    // Remove Item from escrow list 
+	    _removeEscrow(erc721, assetId);
 	}
 
 	function payLend() public payable {
