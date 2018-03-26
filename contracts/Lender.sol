@@ -101,11 +101,11 @@ contract Lender is NonFungibleEscrow, TBCOToken, Ownable {
 
 		totalVoteShares = totalVoteShares.add(_balance);
 
-		Vote(msg.sender, _lendRate, _lendPercentage);
+		emit Vote(msg.sender, _lendRate, _lendPercentage);
 
 		// close and apply votes result if voted > 50%
 		if (totalVoteShares > totalSupply().div(2)) {
-			VoteClosed(totalVoteShares, avgVoteRate, avgVotePercentage);
+			emit VoteClosed(totalVoteShares, avgVoteRate, avgVotePercentage);
 			
 			// Reset poll
 			lastVotedAt = now;

@@ -23,8 +23,8 @@ contract TBCOToken is StandardToken {
     totalSupply_ = totalSupply_.add(_amount);
     balances[_to] = balances[_to].add(_amount);
     
-    Mint(_to, _amount);
-    Transfer(address(0), _to, _amount);
+    emit Mint(_to, _amount);
+    emit Transfer(address(0), _to, _amount);
   }
 
   function sell(uint256 _value) public {
@@ -37,7 +37,7 @@ contract TBCOToken is StandardToken {
     
     burner.transfer(_value);
 
-    Burn(burner, _value);
+    emit Burn(burner, _value);
   }
 
 }

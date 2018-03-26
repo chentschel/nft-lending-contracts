@@ -62,7 +62,7 @@ contract Marketplace is Ownable, Pausable, Destructible {
   function setPublicationFee(uint256 publicationFee) onlyOwner public {
     publicationFeeInWei = publicationFee;
 
-    ChangedPublicationFee(publicationFeeInWei);
+    emit ChangedPublicationFee(publicationFeeInWei);
   }
 
   /**
@@ -75,7 +75,7 @@ contract Marketplace is Ownable, Pausable, Destructible {
 
     ownerCutPercentage = ownerCut;
 
-    ChangedOwnerCut(ownerCutPercentage);
+    emit ChangedOwnerCut(ownerCutPercentage);
   }
 
   /**
@@ -110,7 +110,7 @@ contract Marketplace is Ownable, Pausable, Destructible {
 
     totalAuctions++;
 
-    AuctionCreated(auctionId, registry, assetId, assetOwner, priceInWei);
+    emit AuctionCreated(auctionId, registry, assetId, assetOwner, priceInWei);
   }
 
   /**
@@ -127,7 +127,7 @@ contract Marketplace is Ownable, Pausable, Destructible {
     delete auctionsById[auctionId];
     totalAuctions--;
 
-    AuctionCancelled(auctionId, registry, assetId, seller);
+    emit AuctionCancelled(auctionId, registry, assetId, seller);
   }
 
   /**
@@ -167,6 +167,6 @@ contract Marketplace is Ownable, Pausable, Destructible {
     delete auctionsById[auctionId];
     totalAuctions--;
 
-    AuctionSuccessful(auctionId, registry, assetId, seller, price, msg.sender);
+    emit AuctionSuccessful(auctionId, registry, assetId, seller, price, msg.sender);
   }
  }
