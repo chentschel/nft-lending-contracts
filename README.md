@@ -1,4 +1,4 @@
-# nft-lending-contracts
+# nft-lending-contracts [![Build Status](https://travis-ci.org/chentschel/nft-lending-contracts.svg?branch=master)](https://travis-ci.org/chentschel/nft-lending-contracts)
 
 Crowfunded Lending Contracts for buying ERC721. 
 
