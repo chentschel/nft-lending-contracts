@@ -9,7 +9,7 @@ module.exports.increaseTime = function increaseTime(duration) {
       params: [duration],
       id: id,
     }, err1 => {
-      if (err1) return reject(err1)
+      if (err1) return reject(err1);
 
       web3.currentProvider.sendAsync({
         jsonrpc: '2.0',
@@ -17,10 +17,10 @@ module.exports.increaseTime = function increaseTime(duration) {
         id: id+1,
       }, (err2, res) => {
         return err2 ? reject(err2) : resolve(res)
-      })
+      });
     })
   })
-}
+};
 
 module.exports.duration = {
   seconds: function(val) { return val},
@@ -28,5 +28,5 @@ module.exports.duration = {
   hours:   function(val) { return val * this.minutes(60) },
   days:    function(val) { return val * this.hours(24) },
   weeks:   function(val) { return val * this.days(7) },
-  years:   function(val) { return val * this.days(365)}
-}
+  years:   function(val) { return val * this.days(365) }
+};

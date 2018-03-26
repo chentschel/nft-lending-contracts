@@ -1,5 +1,5 @@
-const HDWalletProvider = require('truffle-hdwallet-provider')
-const mnemonic = ''
+const HDWalletProvider = require('truffle-hdwallet-provider');
+const mnemonic = '';
 
 module.exports = {
   networks: {
@@ -17,4 +17,4 @@ module.exports = {
       gas: 4512388
     }
   }
-}
+};

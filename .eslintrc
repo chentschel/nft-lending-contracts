@@ -18,13 +18,16 @@
     "assert": false,
     "web3": false
   },
+  "parserOptions": {
+    "ecmaVersion": 8
+  },
   "rules": {
 
     // Strict mode
     "strict": [2, "global"],
 
     // Code style
-    "indent": [2, 2],
+    "indent": ["error", 2],
     "quotes": [2, "single"],
     "semi": ["error", "always"],
     "space-before-function-paren": ["error", "always"],
@@ -35,9 +38,9 @@
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
     "eol-last": 1,
     "comma-spacing": [2, {"before": false, "after": true}],
-    "camelcase": [2, {"properties": "always"}],
+    "camelcase": [2, {"properties": "never"}],
     "no-mixed-spaces-and-tabs": [2, "smart-tabs"],
-    "comma-dangle": [1, "always-multiline"],
+    "comma-dangle": ["error", "never"],
     "no-dupe-args": 2,
     "no-dupe-keys": 2,
     "no-debugger": 0,
