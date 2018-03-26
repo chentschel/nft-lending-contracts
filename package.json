@@ -1,0 +1,26 @@
+{
+  "name": "nft-lending-contracts",
+  "version": "0.1.0",
+  "description": "NFT Lending Contracts",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^2.0.2"
+  },
+  "scripts": {
+    "test": "scripts/test.sh"
+  },
+  "author": "Christian Hentschel",
+  "license": "ISC",
+  "dependencies": {
+    "solc": "^0.4.21",
+    "truffle": "^4.1.3",
+    "truffle-hdwallet-provider": "0.0.3",
+    "web3-utils": "^1.0.0-beta.26",
+    "zeppelin-solidity": "^1.7.0"
+  }
+}
