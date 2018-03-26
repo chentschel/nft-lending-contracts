@@ -2,20 +2,34 @@
   "name": "nft-lending-contracts",
   "version": "0.1.0",
   "description": "NFT Lending Contracts",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
+  "scripts": {
+    "test": "scripts/test.sh",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:sol": "solium -d .",
+    "lint:sol:fix": "solium -d . --fix",
+    "lint:all": "npm run lint && npm run lint:sol",
+    "lint:all:fix": "npm run lint:fix && npm run lint:sol:fix",
+    "console": "truffle console",
+    "coverage": "scripts/coverage.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chentschel/nft-lending-contracts.git"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "chai-bignumber": "^2.0.2"
-  },
-  "scripts": {
-    "test": "scripts/test.sh"
+    "chai-bignumber": "^2.0.2",
+    "eslint-plugin-promise": "^3.7.0",
+    "ganache-cli": "^6.1.0"
   },
   "author": "Christian Hentschel",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chentschel/nft-lending-contracts/issues"
+  },
+  "homepage": "https://github.com/chentschel/nft-lending-contracts",
   "dependencies": {
     "solc": "^0.4.21",
     "truffle": "^4.1.3",
